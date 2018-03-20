@@ -42,4 +42,3 @@ class ListBooks extends Component {
 }
 
 export default ListBooks
->>>>>>> ab0656be107ff9d3d38e63d964f0ad45c6a0b7fb
