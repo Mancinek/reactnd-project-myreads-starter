@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 /*import * as BooksAPI from './BooksAPI'*/
 import './App.css'
 import { Link } from 'react-router-dom'
