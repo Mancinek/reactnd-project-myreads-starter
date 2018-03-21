@@ -29,11 +29,16 @@ class Bookshelf extends Component {
 				<h2 className="bookshelf-title"> {title} </h2>
 				<div className="bookshelf-books">
 					<ol className="books-grid">
-						{booksOnShelfFiltered.map(book => (// if there are books on shelf (booksOnShelf is not undefined, because it has book from api request) tben render each book on shelf
-							<li key={book.id}>
-								<Book id={book.id} shelf={book.shelf} title={book.title} authors={book.authors} coverUrl={book.imageLinks.smallThumbnail}/>
-							</li>
-						))}
+						{booksOnShelfFiltered.map(book => {// if there are books on shelf (booksOnShelf is not undefined, because it has book from api request) tben render each book on shelf
+							const checkedAuthor = book.authors ? book.authors : ['Unknown author']
+                            const checkedImage = book.imageLinks ? book.imageLinks.smallThumbnail : 'Unknown cover'							
+
+							return (
+								<li key={book.id}>
+									<Book id={book.id} shelf={book.shelf} title={book.title} authors={checkedAuthor} coverUrl={checkedImage}/>
+								</li>
+							)
+						})}
 					</ol>
 				</div>
 			</div>
