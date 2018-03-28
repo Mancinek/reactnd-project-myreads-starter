@@ -11,7 +11,7 @@ Each book has a controller for moving books to the other shelf. You can also add
 
 * [download](https://github.com/Mancinek/reactnd-project-myreads-starter/archive/master.zip) project
 * unzip downloaded file and go to the location where you have uzipped project (use Terminal/Console)
-* install all project dependencies with `npm install` (you nned to have Node.js installed first)
+* install all project dependencies with `npm install` (you need to have Node.js installed first)
 * start the server with `npm start` - the browser will automatically display App on localhost:3000
 
 ## Important:
