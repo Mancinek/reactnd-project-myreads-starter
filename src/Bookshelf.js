@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Book from './Book.js'
+import sortBy from 'sort-by'
 
 class Bookshelf extends Component {
 
@@ -8,12 +9,12 @@ class Bookshelf extends Component {
 		title: PropTypes.string.isRequired,
 		id: PropTypes.string.isRequired,
 		booksOnShelf: PropTypes.array.isRequired
-	};
+	}
+
 
 	render() {
-		const {id, title, booksOnShelf} = this.props; // decomposotion
-		const booksOnShelfFiltered = booksOnShelf.filter(book => book.shelf === id); // filtered books for those which have the same shlef like id of the current shelf
-		console.log(booksOnShelfFiltered);
+		const {id, title, booksOnShelf, onChangeShelf} = this.props; // decomposotion
+		const booksOnShelfFiltered = (booksOnShelf.filter(book => book.shelf === id)).sort(sortBy('title')); // filtered books for those which have the same shelf like id of the current shelf (sorted by title)
 
 /*		const getMeta = (url) => {   
 		    const img = new Image();
@@ -35,7 +36,7 @@ class Bookshelf extends Component {
 
 							return (
 								<li key={book.id}>
-									<Book id={book.id} shelf={book.shelf} title={book.title} authors={checkedAuthor} coverUrl={checkedImage}/>
+									<Book onChangeShelf={this.props.onChangeShelf} book={book} id={book.id} shelf={book.shelf} title={book.title} authors={checkedAuthor} coverUrl={checkedImage}/>
 								</li>
 							)
 						})}
@@ -44,7 +45,6 @@ class Bookshelf extends Component {
 			</div>
 		)
 	}
-
 }
 
 export default Bookshelf
